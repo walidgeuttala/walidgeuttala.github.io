@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Walid Guettala — AI Researcher & PhD Candidate</title>
+<meta name="description" content="Portfolio of Walid Guettala, PhD Candidate at ELTE University specialising in Graph Neural Networks and Combinatorial Optimisation."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+      colors: {
+        cyan:  { 400:'#22d3ee', 500:'#06b6d4', 600:'#0891b2' },
+        neon:  { DEFAULT:'#00ffe7' },
+        glass: { DEFAULT:'rgba(15,23,42,0.6)' }
+      },
+      boxShadow: {
+        glow: '0 0 20px rgba(34,211,238,0.25)',
+        'glow-lg': '0 0 40px rgba(34,211,238,0.35)'
+      }
+    }
+  }
+}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#020817;color:#e2e8f0;font-family:'Inter',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0f172a}
+::-webkit-scrollbar-thumb{background:#22d3ee44;border-radius:3px}
+.glass{background:rgba(15,23,42,0.6);backdrop-filter:blur(16px);border:1px solid rgba(34,211,238,0.12)}
+.glow-text{text-shadow:0 0 20px rgba(34,211,238,0.6)}
+.glow-border{box-shadow:0 0 0 1px rgba(34,211,238,0.3),0 0 20px rgba(34,211,238,0.1)}
+.card-hover{transition:all 0.3s ease}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 0 30px rgba(34,211,238,0.2)}
+.tag{display:inline-block;padding:2px 10px;border-radius:9999px;font-size:0.72rem;font-weight:500;background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.3);color:#67e8f9;margin:2px}
+.progress-bar{height:6px;border-radius:3px;background:rgba(34,211,238,0.15);overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#06b6d4,#00ffe7);transition:width 1.2s ease}
+.grid-pattern{background-image:linear-gradient(rgba(34,211,238,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,0.03) 1px,transparent 1px);background-size:40px 40px}
+@keyframes pulse-slow{0%,100%{opacity:0.5}50%{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+.float-anim{animation:float 6s ease-in-out infinite}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.15;pointer-events:none}
+nav a{transition:color 0.2s}
+nav a:hover{color:#22d3ee}
+.section-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#22d3ee;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body class="dark">
+
+<!-- Background blobs -->
+<div class="blob w-96 h-96 bg-cyan-500 top-0 left-0" style="top:-100px;left:-100px"></div>
+<div class="blob w-80 h-80 bg-purple-600" style="top:40%;right:-80px"></div>
+<div class="blob w-64 h-64 bg-cyan-400" style="bottom:10%;left:20%"></div>
+
+<div class="relative min-h-screen grid-pattern" id="app">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-cyan-400/10">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <span class="font-mono text-cyan-400 font-semibold tracking-wider text-sm">WG<span class="text-white">.dev</span></span>
+    <div class="hidden md:flex gap-6 text-sm text-slate-400">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:guettala.walid@gmail.com" class="text-xs px-3 py-1.5 rounded-full border border-cyan-400/40 text-cyan-400 hover:bg-cyan-400/10 transition-all">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center pt-20 px-6" id="about">
+  <div class="max-w-6xl mx-auto w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="section-label mb-4">// PhD Candidate · ELTE University</p>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4">
+          Walid<br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 glow-text">Guettala</span>
+        </h1>
+        <p class="text-slate-300 text-lg mb-2 font-medium">AI Researcher · Graph Neural Networks</p>
+        <p class="text-slate-400 mb-8 leading-relaxed max-w-md">
+          Specialising in <strong class="text-cyan-300">Combinatorial Optimisation</strong> with GNNs — solving NP-hard problems like the Travelling Salesman Problem with deep learning. 1.5+ years teaching MSc-level GNN courses.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="mailto:guettala.walid@gmail.com" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 hover:bg-cyan-400/30 transition-all text-sm font-medium card-hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          <a href="https://github.com/walid-guettala" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl glass border border-white/10 text-slate-300 hover:border-cyan-400/40 hover:text-cyan-300 transition-all text-sm font-medium card-hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/walid-guettala" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl glass border border-white/10 text-slate-300 hover:border-cyan-400/40 hover:text-cyan-300 transition-all text-sm font-medium card-hover">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <!-- Terminal Card -->
+      <div class="glass rounded-2xl p-6 glow-border float-anim">
+        <div class="flex gap-2 mb-4">
+          <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+          <span class="ml-2 text-xs text-slate-500 font-mono">walid@elte:~</span>
+        </div>
+        <div class="font-mono text-sm space-y-2">
+          <p><span class="text-cyan-400">$</span> <span class="text-slate-300">whoami</span></p>
+          <p class="text-green-400 pl-2">Walid Guettala — AI Researcher</p>
+          <p><span class="text-cyan-400">$</span> <span class="text-slate-300">cat research.txt</span></p>
+          <p class="text-slate-400 pl-2 text-xs leading-relaxed">Focus: Graph Neural Networks<br/>Task: Combinatorial Optimisation<br/>Prob: TSP / Routing / Scheduling<br/>Framework: PyTorch + DGL</p>
+          <p><span class="text-cyan-400">$</span> <span class="text-slate-300">echo $STATUS</span></p>
+          <p class="text-yellow-300 pl-2">🔬 PhD in progress @ ELTE</p>
+          <p><span class="text-cyan-400">$</span> <span class="text-slate-300 animate-pulse">_</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Skill tags -->
+    <div class="mt-12 flex flex-wrap gap-2">
+      <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">C++</span>
+      <span class="tag">Graph Neural Networks</span><span class="tag">Combinatorial Optimisation</span>
+      <span class="tag">TSP</span><span class="tag">MATLAB</span><span class="tag">COMSOL</span>
+      <span class="tag">Simulink</span><span class="tag">DGL</span><span class="tag">NetworkX</span>
+      <span class="tag">Linux / HPC</span>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="py-20 px-6" id="experience">
+  <div class="max-w-6xl mx-auto">
+    <p class="section-label mb-2">// Skills & Expertise</p>
+    <h2 class="text-3xl font-bold mb-10">Technical Stack</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-2xl p-6 card-hover">
+        <h3 class="text-cyan-300 font-semibold mb-5">Core Languages</h3>
+        <div class="space-y-4">
+          <div><div class="flex justify-between text-sm mb-1"><span>Python</span><span class="text-cyan-400">95%</span></div><div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span>C++</span><span class="text-cyan-400">70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span>MATLAB</span><span class="text-cyan-400">80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-6 card-hover">
+        <h3 class="text-cyan-300 font-semibold mb-5">ML / Research</h3>
+        <div class="space-y-4">
+          <div><div class="flex justify-between text-sm mb-1"><span>PyTorch</span><span class="text-cyan-400">92%</span></div><div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span>Graph Neural Networks</span><span class="text-cyan-400">90%</span></div><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span>Combinatorial Opt.</span><span class="text-cyan-400">88%</span></div><div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Experience timeline -->
+    <div class="mt-12 space-y-4">
+      <div class="glass rounded-2xl p-6 border-l-2 border-cyan-400 card-hover">
+        <div class="flex justify-between items-start flex-wrap gap-2">
+          <div>
+            <h3 class="font-semibold text-white">PhD Candidate — AI Researcher</h3>
+            <p class="text-cyan-400 text-sm">ELTE University, Budapest</p>
+          </div>
+          <span class="text-xs text-slate-500 font-mono">2023 — present</span>
+        </div>
+        <p class="text-slate-400 text-sm mt-2">Research on heterogeneous GNNs for scalable combinatorial optimisation, focusing on NP-hard routing and scheduling problems.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 border-l-2 border-purple-400 card-hover">
+        <div class="flex justify-between items-start flex-wrap gap-2">
+          <div>
+            <h3 class="font-semibold text-white">MSc-Level GNN Teaching</h3>
+            <p class="text-purple-400 text-sm">ELTE University</p>
+          </div>
+          <span class="text-xs text-slate-500 font-mono">1.5+ years</span>
+        </div>
+        <p class="text-slate-400 text-sm mt-2">Designed and delivered graduate-level courses on Graph Neural Networks to MSc students. Topics: message passing, attention mechanisms, graph transformers, CO applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="py-20 px-6 bg-slate-900/30" id="publications">
+  <div class="max-w-6xl mx-auto">
+    <p class="section-label mb-2">// Research Output</p>
+    <h2 class="text-3xl font-bold mb-10">Publications</h2>
+    <div class="space-y-4">
+      <div class="glass rounded-2xl p-6 card-hover">
+        <div class="flex gap-4 items-start">
+          <div class="text-2xl font-bold text-cyan-400/30 font-mono leading-none">01</div>
+          <div>
+            <h3 class="font-semibold text-white mb-1">Heterogeneous GNNs for Scalable Asymmetric TSP</h3>
+            <p class="text-sm text-cyan-400 mb-2">Neurocomputing</p>
+            <p class="text-slate-400 text-sm">A novel heterogeneous graph neural network architecture for solving the asymmetric Travelling Salesman Problem at scale, outperforming classical heuristics.</p>
+            <div class="mt-3 flex gap-2">
+              <span class="tag">GNN</span><span class="tag">TSP</span><span class="tag">Combinatorial Opt.</span><span class="tag">Neurocomputing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE GITHUB PROJECTS -->
+<section class="py-20 px-6" id="projects">
+  <div class="max-w-6xl mx-auto">
+    <p class="section-label mb-2">// Live from GitHub API</p>
+    <h2 class="text-3xl font-bold mb-2">Projects</h2>
+    <p class="text-slate-500 text-sm mb-10 font-mono">Auto-updating · Last fetched: <span id="fetch-time">—</span></p>
+    <div id="repos-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Filled by JS -->
+      <div class="glass rounded-2xl p-6 animate-pulse">
+        <div class="h-4 bg-slate-700 rounded mb-3 w-3/4"></div>
+        <div class="h-3 bg-slate-700 rounded mb-2 w-full"></div>
+        <div class="h-3 bg-slate-700 rounded w-2/3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-20 px-6" id="contact">
+  <div class="max-w-6xl mx-auto text-center">
+    <p class="section-label mb-2">// Let's Connect</p>
+    <h2 class="text-4xl font-bold mb-4">Open to Collaboration</h2>
+    <p class="text-slate-400 max-w-lg mx-auto mb-10">Whether it's research partnerships, industrial projects on graph ML, or teaching — feel free to reach out.</p>
+    <div class="flex justify-center flex-wrap gap-4">
+      <a href="mailto:guettala.walid@gmail.com" class="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold hover:from-cyan-400 hover:to-cyan-500 transition-all shadow-glow">Send Email</a>
+      <a href="https://github.com/walid-guettala" target="_blank" class="px-8 py-3 rounded-xl glass border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 transition-all font-semibold">GitHub Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-white/5 py-6 text-center text-slate-600 text-xs font-mono">
+  Walid Guettala · Built with React + Tailwind · Hosted on GitHub Pages
+</footer>
+
+</div><!-- #app -->
+
+<script>
+// ---- GITHUB REPOS ----
+const GITHUB_USER = 'walid-guettala';
+const LANG_COLORS = {
+  Python:'#3572A5', JavaScript:'#f1e05a', 'C++':'#f34b7d',
+  MATLAB:'#e16737', Jupyter:'#DA5B0B', HTML:'#e34c26', default:'#22d3ee'
+};
+
+function langColor(lang){ return LANG_COLORS[lang] || LANG_COLORS.default; }
+
+function defaultSvg(name){
+  const colors = ['#06b6d4','#8b5cf6','#10b981','#f59e0b','#ef4444'];
+  const c = colors[name.charCodeAt(0) % colors.length];
+  return `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="180" viewBox="0 0 400 180"><rect width="400" height="180" fill="#0f172a"/><text x="200" y="95" text-anchor="middle" font-family="monospace" font-size="14" fill="${c}" opacity="0.8">${name}</text><circle cx="50" cy="50" r="60" fill="${c}" opacity="0.04"/><circle cx="350" cy="130" r="80" fill="${c}" opacity="0.04"/></svg>`)}`;
+}
+
+async function fetchReadmeImage(owner, repo){
+  try {
+    const r = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, {headers:{Accept:'application/vnd.github.v3.raw'}});
+    if(!r.ok) return null;
+    const text = await r.text();
+    const m = text.match(/!\[.*?\]\((https?:\/\/[^)]+)\)/);
+    return m ? m[1] : null;
+  } catch { return null; }
+}
+
+function repoCard(repo, img){
+  const thumb = img || defaultSvg(repo.name);
+  const lang = repo.language || 'Code';
+  const desc = repo.description || 'No description provided.';
+  const stars = repo.stargazers_count;
+  const forks = repo.forks_count;
+  return `
+  <a href="${repo.html_url}" target="_blank" class="glass rounded-2xl overflow-hidden card-hover group block">
+    <div class="h-36 overflow-hidden relative">
+      <img src="${thumb}" alt="${repo.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='${defaultSvg(repo.name)}'"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+    </div>
+    <div class="p-5">
+      <div class="flex items-center gap-2 mb-2">
+        <span style="background:${langColor(repo.language)}" class="w-2.5 h-2.5 rounded-full shrink-0"></span>
+        <h3 class="font-semibold text-white text-sm truncate group-hover:text-cyan-300 transition-colors">${repo.name}</h3>
+      </div>
+      <p class="text-slate-400 text-xs leading-relaxed mb-4 line-clamp-2">${desc}</p>
+      <div class="flex items-center justify-between text-xs text-slate-500">
+        <span class="font-mono">${lang}</span>
+        <div class="flex gap-3">
+          <span>★ ${stars}</span>
+          <span>⑂ ${forks}</span>
+        </div>
+      </div>
+    </div>
+  </a>`;
+}
+
+async function loadRepos(){
+  const grid = document.getElementById('repos-grid');
+  const timeEl = document.getElementById('fetch-time');
+  try {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=9`);
+    if(!res.ok) throw new Error('API error');
+    const repos = await res.json();
+    timeEl.textContent = new Date().toLocaleTimeString();
+    // Fetch images concurrently (best-effort)
+    const imgs = await Promise.all(repos.map(r => fetchReadmeImage(GITHUB_USER, r.name)));
+    grid.innerHTML = repos.map((r,i) => repoCard(r, imgs[i])).join('');
+  } catch(e){
+    grid.innerHTML = `<div class="col-span-3 glass rounded-2xl p-8 text-center text-slate-500">
+      <p class="text-2xl mb-2">⚠️</p>
+      <p>Could not load repositories. Check network or GitHub rate limit.</p>
+      <a href="https://github.com/${GITHUB_USER}" class="text-cyan-400 text-sm mt-2 inline-block">View on GitHub →</a>
+    </div>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadRepos);
+</script>
+</body>
+</html>
