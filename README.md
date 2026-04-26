@@ -26,6 +26,6 @@ git push -u origin main
 3. That's it — the workflow in `.github/workflows/deploy.yml` handles everything automatically.
 
 Your portfolio will be live at:
-**https://walid-guettala.github.io/portfolio/**
+**[https://walid-guettala.github.io/portfolio/](https://walidgeuttala.github.io/)**
 
 Every `git push` to `main` redeploys automatically.
