@@ -732,7 +732,7 @@ function TerminalApp() {
 }
 
 function Desktop() {
-    const [openWindows, setOpenWindows] = useState(["about", "career"]);
+    const [openWindows, setOpenWindows] = useState(["about", "github"]);
     const [zIndices, setZIndices] = useState({ about: 10, github: 1, publications: 1, awards: 1, terminal: 1, career: 1, skills: 1 });
     const [topZ, setTopZ] = useState(11);
     const [time, setTime] = useState(new Date());
