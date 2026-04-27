@@ -731,6 +731,89 @@ function TerminalApp() {
     );
 }
 
+// --- Mobile Layout ---
+function MobileLayout() {
+    const [activeTab, setActiveTab] = useState('about');
+    const [time, setTime] = useState(new Date());
+
+    useEffect(() => {
+        const interval = setInterval(() => setTime(new Date()), 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const components = {
+        about: AboutApp,
+        career: CareerApp,
+        github: GitHubApp,
+        publications: PublicationsApp,
+        skills: SkillsApp,
+        awards: AwardsApp,
+        terminal: TerminalApp,
+    };
+
+    const AppContent = components[activeTab];
+    const currentApp = APPS.find(a => a.id === activeTab) || APPS[0];
+
+    return (
+        <div className="mobile-layout">
+            {/* Mobile Top Bar */}
+            <div className="mobile-topbar">
+                <div className="mobile-topbar-left">
+                    <div className="mobile-logo">
+                        <Icon name="Cpu" size={14} className="text-cyan-400" />
+                        <span>WG · AI Researcher</span>
+                    </div>
+                    <div className="mobile-status">
+                        <span className="mobile-status-dot"></span>
+                        <span>ONLINE</span>
+                    </div>
+                </div>
+                <div className="mobile-clock">
+                    {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </div>
+            </div>
+
+            {/* Mobile Page Header */}
+            <div className="mobile-page-header" style={{ borderColor: `${currentApp.color}30` }}>
+                <div className="mobile-page-icon" style={{ background: `${currentApp.color}15`, color: currentApp.color }}>
+                    <Icon name={currentApp.IconName} size={20} />
+                </div>
+                <div>
+                    <h1 className="mobile-page-title">{currentApp.label}</h1>
+                    <p className="mobile-page-sub">Walid Guettala • ELTE</p>
+                </div>
+                <div className="mobile-live-dot"></div>
+            </div>
+
+            {/* Mobile Content Area */}
+            <div className="mobile-content">
+                <AppContent />
+            </div>
+
+            {/* Mobile Bottom Nav */}
+            <nav className="mobile-nav">
+                {APPS.map(app => (
+                    <button
+                        key={app.id}
+                        onClick={() => setActiveTab(app.id)}
+                        className={`mobile-nav-btn ${activeTab === app.id ? 'mobile-nav-btn-active' : ''}`}
+                        style={activeTab === app.id ? { color: app.color } : {}}
+                    >
+                        <div className="mobile-nav-icon">
+                            <Icon name={app.IconName} size={20} />
+                            {activeTab === app.id && (
+                                <div className="mobile-nav-indicator" style={{ background: app.color }}></div>
+                            )}
+                        </div>
+                        <span className="mobile-nav-label">{app.label}</span>
+                    </button>
+                ))}
+            </nav>
+        </div>
+    );
+}
+
+// --- Desktop Layout ---
 function Desktop() {
     const [openWindows, setOpenWindows] = useState(["about", "github"]);
     const [zIndices, setZIndices] = useState({ about: 10, github: 1, publications: 1, awards: 1, terminal: 1, career: 1, skills: 1 });
@@ -743,7 +826,6 @@ function Desktop() {
     }, []);
 
     const toggleWindow = (id) => {
-        // About should always be open - focus instead of toggle
         if (id === 'about') {
             focusWindow('about');
             if (!openWindows.includes('about')) {
@@ -762,16 +844,11 @@ function Desktop() {
             return;
         }
 
-        // Swapping/Closing logic for right-side apps
         const rightSideApps = ['github', 'publications', 'awards', 'skills', 'career'];
         if (rightSideApps.includes(id)) {
             if (openWindows.includes(id)) {
-                // If already open, clicking again closes it (standard behavior)
-                // OR if it's from the taskbar, it might focus. 
-                // But from the 'X' button, it MUST close.
                 setOpenWindows(prev => prev.filter(w => w !== id));
             } else {
-                // Replace any currently open right-side app
                 setOpenWindows(prev => [
                     ...prev.filter(w => !rightSideApps.includes(w)),
                     id
@@ -797,11 +874,10 @@ function Desktop() {
         terminal: TerminalApp 
     };
 
-    // Slot Positions
     const getInitialPos = (id) => {
         if (id === 'about') return { x: 140, y: 100 };
         if (id === 'terminal') return { x: 450, y: 350 };
-        return { x: 1000, y: 100 }; // Right slot
+        return { x: 1000, y: 100 };
     };
 
     return (
@@ -907,5 +983,18 @@ function Desktop() {
     );
 }
 
+// --- Root App (Responsive) ---
+function App() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return isMobile ? <MobileLayout /> : <Desktop />;
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Desktop />);
+root.render(<App />);
